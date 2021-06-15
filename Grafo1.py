@@ -4,6 +4,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pylab
 
+
+
 def ObtenerVerticesGrafo(nombre):
     lista=[]
     arch = open(nombre, 'r')
@@ -12,7 +14,9 @@ def ObtenerVerticesGrafo(nombre):
     arch.close()
     lista.pop(len(lista)-1)
     return lista
-    
+
+
+
 def ObtenerAdyacenciaGrafo(nombre):  
     lista=[]
     pardevertices=[]
@@ -26,6 +30,8 @@ def ObtenerAdyacenciaGrafo(nombre):
         
     arch.close()  
     return lista
+
+
 
 
 def ConstruirGrafo(listaNodos, ADYACENCIA):
@@ -52,6 +58,8 @@ def ConstruirGrafo(listaNodos, ADYACENCIA):
     plt.show() 
     
 
+
+
 def GrafoNetworkx(NOMBREGRAFO): 
     Nodos=ObtenerVerticesGrafo(NOMBREGRAFO)
     NodosAdyacentes=ObtenerAdyacenciaGrafo(NOMBREGRAFO)
@@ -59,6 +67,7 @@ def GrafoNetworkx(NOMBREGRAFO):
     print NodosAdyacentes
     ConstruirGrafo(Nodos, NodosAdyacentes)
     
+
 
 #GrafoNetworkx('Grafo.txt')
 
