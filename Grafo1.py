@@ -30,33 +30,15 @@ def ObtenerVerticesGrafo(nombre):
     lista.pop(len(lista)-1)
     return lista
 
-<<<<<<< HEAD
- 
-#FUNCION PARA LEER LAS ADYACENCIAS DEL GRAFO
-#Esta funcion continua leyendo el archivo .txt correspondiente al grafo
-#a partir de la segunda linea del archivo de texto, se enlistan las adyacencias de los vertices
-#Por ejemplo si tenemos:
-#vertice1,vertice3
-#vertice1,vertice5
-#vertice2,vertice4
-#etc
-#el vertice1 tiene dyacencia con el vertice3, el vertice1 tiene adyacencia con el vertice5 
-#y asi segun corresponda al grafo.
-
-=======
 """
-FUNCION PARA LEER LAS ADYACENCIAS DEL GRAFO
-Esta funcion continua leyendo el archivo .txt correspondiente al grafo
-a partir de la segunda linea del archivo de texto, se enlistan las adyacencias de los vertices
-Por ejemplo si tenemos:
-vertice1,vertice3
-vertice1,vertice5
-vertice2,vertice4
-etc
-el vertice1 tiene dyacencia con el vertice3, el vertice1 tiene adyacencia con el vertice5 
+FUNCION PARA LEER EL NOMBRE DE LOS VERTICES DEL GRAFO
+Esta funcion lee un archivo de texto que contiene escrito al grafo y obtiene el nombre de los vertices
+Esta funcion unicamente lee la primera linea del archivo de texto correspondiente al grafo(.txt)
+ya que este debe tener enlistado en su primera linea (y separado por comas) el nombre de los vertices.
+por ejemplo:
+vertice1,vertice2,vertice3,vertice4 
 y asi segun corresponda al grafo.
 """
->>>>>>> tmp
 def ObtenerAdyacenciaGrafo(nombre):  
     lista=[]
     pardevertices=[]
@@ -72,11 +54,6 @@ def ObtenerAdyacenciaGrafo(nombre):
     return lista
 
  
-#FUNCION PARA CONSTRUIR Y REPRESENTAR AL GRAFO
-#Esta funcion recibe dos listas: una correspondiente al nombre de lso vertices o nodos y 
-#la otra correspondiente a las adyacencias del grafo, y usa networkx para construir
-#la estructura del grafo y representar de manera visual el grafo construido a partir del archivo .txt
-
 """
 FUNCION PARA CONSTRUIR Y REPRESENTAR AL GRAFO
 Esta funcion recibe dos listas: una correspondiente al nombre de lso vertices o nodos y 
@@ -107,12 +84,6 @@ def ConstruirGrafo(listaNodos, ADYACENCIA):
     plt.show() 
     
  
-#FUNCION PARA INICIAR LECTURA DE UN GRAFO
-#esta funcion sirve para ejecutar a las funciones descritas anteriormente que hacen posible
-#la construccion de un grafo a partir de un archivo de texto (con la estructura adecuada).
-#Se recibe como parámetro el nombre del archivo de texto a leer (el grafo).
-#por ejemplo: esteesungrafo.txt
-
 
 """
 FUNCION PARA INCIAR LA CONSTRUCCION Y REPRESENTACION DEL GRAFO
@@ -122,22 +93,10 @@ descritas anteriormenet para crear al grafo.
 def GrafoNetworkx(NOMBREGRAFO): 
     Nodos=ObtenerVerticesGrafo(NOMBREGRAFO)
     NodosAdyacentes=ObtenerAdyacenciaGrafo(NOMBREGRAFO)
-<<<<<<< HEAD
-    print Nodos    
-    print NodosAdyacentes  
-=======
-    #print Nodos          #no afecta funcionalidad. solo es para ver que esta ocurriendo
-    #print NodosAdyacentes #no afecta funcionalidad
->>>>>>> tmp
     ConstruirGrafo(Nodos, NodosAdyacentes)
     
  
 
-<<<<<<< HEAD
 #comando para probar la funcionalidad de estas funciones
 #GrafoNetworkx('Grafo.txt')    
-=======
-
-#GrafoNetworkx('Grafo.txt')
->>>>>>> tmp
 
