@@ -65,7 +65,7 @@ def ConstruirGrafo(listaNodos, ADYACENCIA):
         G.add_edge(ady1,ady2)
 
     pos = nx.spring_layout(G)
-    nx.draw_networkx_nodes(G,pos ,nodelist=listaNodos,node_color='w',node_size=500, alpha=0.8)
+    nx.draw_networkx_nodes(G,pos ,nodelist=listaNodos,node_color='y',node_size=500, alpha=0.8)
     labels={}
 
     for i in range(0,len(listaNodos)):

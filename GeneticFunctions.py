@@ -246,7 +246,7 @@ def MainFunction(NOMBREGRAFO):
     print COLORES
 
 
-    if( (NOMBREGRAFO == 'EjemploMapaLatinoamerica.txt') or (NOMBREGRAFO=='EjemploMapaUSA.txt')):
+    if( (NOMBREGRAFO == 'grafosejemplo/EjemploMapaLatinoamerica.txt') or (NOMBREGRAFO=='grafosejemplo/EjemploMapaUSA.txt')):
         M=100
         MAXIMO=300
     else:

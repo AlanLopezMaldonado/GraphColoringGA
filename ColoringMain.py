@@ -16,7 +16,7 @@ def RealizarAlgoritmoGenetico(NOMBREGRAFO):
 #funcion incesesaria. solo para lectura de los ejemplos
 def ObtenerNombresGrafos():
     lista=[]
-    arch = open('ListaDeNombresDeGrafos.txt', 'r') #se abre solo para lectura
+    arch = open('grafosejemplo/ListaDeNombresDeGrafos.txt', 'r') #se abre solo para lectura
     text = file.read(arch)
     lista= text.split(",")
     arch.close()
@@ -35,7 +35,7 @@ def MostrarMenuPrincipal():
     
     vent1=Tk()
     vent1.title("Sistema de Coloracion de grafos")
-    colorvent1="#2E8B57"  
+    colorvent1="#4f7ab3"  
     vent1.configure(background=colorvent1)
     vent1.geometry("700x600+0+0")
     valorop=StringVar()
@@ -76,7 +76,7 @@ def MostrarMenuPrincipal():
     else:   
         print "el nombre del grafo es"
         NOMBRE= ListadeGrafos[ int(Opcion) -1 ]
-        NOMBREGRAFO = NOMBRE + str('.txt')
+        NOMBREGRAFO = str('grafosejemplo/') + NOMBRE + str('.txt')
         print NOMBREGRAFO
         RealizarAlgoritmoGenetico(NOMBREGRAFO)
     
