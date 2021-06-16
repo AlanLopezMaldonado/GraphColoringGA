@@ -153,7 +153,7 @@ def Genetic_Algorithm(generacionrecibida, numgeneraciones,M, N, NC, MAXIMO, VERT
     bandera= 0
     for cromosoma in GeneracionSeleccionada:
         if (Fitness(cromosoma, N,VERTICES, ADYACENCIA)==0 ): #si no hay colisiones, entonces la matriz es solucion y se muestra
-            print "\n\n ¡¡¡ SE HA ENCONTRADO UNA SOLUCION !!! \n"
+            print "\n\n ï¿½ï¿½ï¿½ SE HA ENCONTRADO UNA SOLUCION !!! \n"
             print "El numero de iteraciones es: "
             print numgeneraciones
             print cromosoma
@@ -164,7 +164,7 @@ def Genetic_Algorithm(generacionrecibida, numgeneraciones,M, N, NC, MAXIMO, VERT
             break
         else:
             bandera=0
-
+    
     if( numgeneraciones >=MAXIMO):
         print " SE HA LLEGADO AL NUMERO MAXIMO DE ITERACIONES:  " + str(MAXIMO)
         print "!!! NO SE HA PODIDO COLOREAR EL GRAFO CORRECTAMENTE !!!"
@@ -237,10 +237,16 @@ def MainFunction(NOMBREGRAFO):
     
     #COLORES=['Azul', 'rojo', 'amarillo' ,'blanco' ]
     COLORES=ObtenerListadeColores()
+    
+    #aqui obtener la lista de colores que seran muchos... y usar el NC (numero cromatico) 
+    #para determinar cuantos colores se agarraran y crear una lista con ese numero de colores
+    #pero ojo que cuando se aumente el nc  en el algoritmo genetico, se tendra que nuevamente agrandar 
+    #la lista de colores. eso es importante para que funcione bien
+    
     print COLORES
 
 
-    if( (NOMBREGRAFO == 'EjemploMapaLatinoamerica.txt') or (NOMBREGRAFO=='EjemploMapaUSA.txt')):
+    if( (NOMBREGRAFO == 'grafosejemplo/EjemploMapaLatinoamerica.txt') or (NOMBREGRAFO=='grafosejemplo/EjemploMapaUSA.txt')):
         M=100
         MAXIMO=300
     else:
