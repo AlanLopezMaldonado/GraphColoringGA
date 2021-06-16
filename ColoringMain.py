@@ -13,7 +13,7 @@ def RealizarAlgoritmoGenetico(NOMBREGRAFO):
     GrafoSolucion.GrafoNetworkx(NOMBREGRAFO, Solucion)
     MostrarMenuPrincipal()
     
-
+#funcion incesesaria. solo para lectura de los ejemplos
 def ObtenerNombresGrafos():
     lista=[]
     arch = open('ListaDeNombresDeGrafos.txt', 'r') #se abre solo para lectura
@@ -71,7 +71,7 @@ def MostrarMenuPrincipal():
     if( int(Opcion) == n+1):
         print "FALTA IMPLEMENTAR EL ALGORITMO PARA CREAR UN NUEVO GRAFO"
     elif (int(Opcion) == n+2):
-        print "HAS SALIDO SATISFACTORIAMENTE DEL SISTEMA"
+        print "HAS SALIDO SATISFACTORIAMENTE DEL SISTEMA" #implementarlo mejor como un boton
         vent1.destroy
     else:   
         print "el nombre del grafo es"
