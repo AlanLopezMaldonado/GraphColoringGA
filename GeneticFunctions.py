@@ -153,12 +153,13 @@ def Genetic_Algorithm(generacionrecibida, numgeneraciones,M, N, NC, MAXIMO, VERT
     bandera= 0
     for cromosoma in GeneracionSeleccionada:
         if (Fitness(cromosoma, N,VERTICES, ADYACENCIA)==0 ): #si no hay colisiones, entonces la matriz es solucion y se muestra
-            print "\n\n ��� SE HA ENCONTRADO UNA SOLUCION !!! \n"
+            print "\n\n SE HA ENCONTRADO UNA SOLUCION !!! \n"
             print "El numero de iteraciones es: "
             print numgeneraciones
             print cromosoma
             mostrarSolucionColores(cromosoma, N, VERTICES, COLORES )
             #MostrarComparacion(cromosoma, N, VERTICES, ADYACENCIA)
+            #raw_input("Press Enter to continue...")
             bandera = 1
             return cromosoma 
             break
@@ -250,8 +251,8 @@ def MainFunction(NOMBREGRAFO):
         M=100
         MAXIMO=300
     else:
-        M=30  #tamanio de la muestra (numero de individuos de cada generacion)
-        MAXIMO=50 #numero maximo de iteraciones
+        M=100  #tamanio de la muestra (numero de individuos de cada generacion) m=30
+        MAXIMO=300 #numero maximo de iteraciones maximo=50
         
     N=len(VERTICES) #Numero de vertices  
     NC=len(COLORES) #numero de colores  

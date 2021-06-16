@@ -5,12 +5,24 @@ from Tkinter import *
 import Grafo1
 import GeneticFunctions
 import GrafoSolucion
+import os
 
+def clear():
+    if os.name == "posix":
+        os.system("clear")
+    elif os.name == "dos":
+        os.system("cls")
+    elif os.name == "nt":
+        os.system("cls")
+    elif os.name == "ce":
+        os.system("cls")
 
 def RealizarAlgoritmoGenetico(NOMBREGRAFO):
     Grafo1.GrafoNetworkx(NOMBREGRAFO)
     Solucion= GeneticFunctions.MainFunction(NOMBREGRAFO)
     GrafoSolucion.GrafoNetworkx(NOMBREGRAFO, Solucion)
+    raw_input("Press Enter to continue...")
+    clear()
     MostrarMenuPrincipal()
     
 #funcion incesesaria. solo para lectura de los ejemplos
