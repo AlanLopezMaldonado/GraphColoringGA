@@ -161,7 +161,7 @@ def Genetic_Algorithm(generacionrecibida, numgeneraciones,M, N, NC, MAXIMO, VERT
             #MostrarComparacion(cromosoma, N, VERTICES, ADYACENCIA)
             #raw_input("Press Enter to continue...")
             bandera = 1
-            return cromosoma 
+            return cromosoma , bandera
             break
         else:
             bandera=0
@@ -171,7 +171,7 @@ def Genetic_Algorithm(generacionrecibida, numgeneraciones,M, N, NC, MAXIMO, VERT
         print "!!! NO SE HA PODIDO COLOREAR EL GRAFO CORRECTAMENTE !!!"
         print "Es posible que se requieran mas colores o bien, vuelva a correr el programa"
         print "\n\n"
-        return GeneracionSeleccionada[1]
+        return GeneracionSeleccionada[1] , bandera
         
     if (bandera==0  and numgeneraciones <= MAXIMO):
         print "La generacion no cuenta con la solucion. Realizar nuevamente Genetic_Algorithm"

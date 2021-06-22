@@ -25,8 +25,8 @@ def clear():
 def RealizarAlgoritmoGenetico(NOMBREGRAFO):
     vent1.destroy
     Grafo1.GrafoNetworkx(NOMBREGRAFO)
-    Solucion= GeneticFunctions.MainFunction(NOMBREGRAFO)
-    GrafoSolucion.GrafoNetworkx(NOMBREGRAFO, Solucion)
+    Solucion,valor= GeneticFunctions.MainFunction(NOMBREGRAFO)
+    GrafoSolucion.GrafoNetworkx(NOMBREGRAFO, Solucion,valor)
     raw_input("Press Enter to continue...")
     clear()
     MostrarMenuPrincipal()

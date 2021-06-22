@@ -36,7 +36,7 @@ def ObtenerAdyacenciaGrafo(nombre):  #Crea unaclista con los pares de vertices a
     return lista
 
 
-def ConstruirGrafo(listaNodos, ADYACENCIA, Solucion, listacolores):
+def ConstruirGrafo(listaNodos, ADYACENCIA, Solucion, listacolores,valor):
   
     """print listaNodos
     print ADYACENCIA
@@ -99,21 +99,24 @@ def ConstruirGrafo(listaNodos, ADYACENCIA, Solucion, listacolores):
     print "Nodos: ", G.number_of_nodes(), G.nodes()
     print "Enlaces: ", G.number_of_edges(),G.edges()
 
-    resultado="correctamente"
-    plt.title("El grafo se ha coloreado "+ resultado)
+    if(valor==1):
+        resultado= "El grafo se ha coloreado CORRECTAMENTE"
+    else:
+        resultado= "El grafo NO ha podido colorearse correctamente !!!"
+    plt.title(resultado)
     plt.axis('off')
     plt.show() 
     
 
 
-def GrafoNetworkx(NOMBREGRAFO, Solucion): ##recibir como parametro NOMBREGRAFO
+def GrafoNetworkx(NOMBREGRAFO, Solucion, valor): ##recibir como parametro NOMBREGRAFO
     #NOMBREGRAFO='Grafo.txt'  ###esto se debe enviar a la funcion GrafoNetworkx
     Nodos=ObtenerVerticesGrafo(NOMBREGRAFO)
     NodosAdyacentes=ObtenerAdyacenciaGrafo(NOMBREGRAFO)
     Colors= ObtenerListadeColores()
     #print Nodos
     #print NodosAdyacentes
-    ConstruirGrafo(Nodos, NodosAdyacentes, Solucion, Colors)
+    ConstruirGrafo(Nodos, NodosAdyacentes, Solucion, Colors,valor)
 
     
 #Solucion=[2,3,0,1,2,0]

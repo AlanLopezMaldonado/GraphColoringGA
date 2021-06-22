@@ -74,8 +74,9 @@ class Test():
         self.buttonColorear["state"] = "disabled"
 
         Grafo1.GrafoNetworkx(filename)
-        Solucion= GeneticFunctions.MainFunction(filename)
-        GrafoSolucion.GrafoNetworkx(filename, Solucion)
+        Solucion,valor= GeneticFunctions.MainFunction(filename)
+        GrafoSolucion.GrafoNetworkx(filename, Solucion,valor)
+        print("ELVALOR DE LA BANDERA ES " + str(valor) )
         raw_input("Press Enter to continue...")
         self.clear()
         Test()
@@ -114,8 +115,9 @@ class Test():
         self.buttonColorear["state"] = "disabled"
 
         Grafo1.GrafoNetworkx(filename)
-        Solucion= GeneticFunctions.MainFunction(filename)
-        GrafoSolucion.GrafoNetworkx(filename, Solucion)
+        Solucion,valor= GeneticFunctions.MainFunction(filename)
+        GrafoSolucion.GrafoNetworkx(filename, Solucion,valor)
+        print("ELVALOR DE LA BANDERA ES " + str(valor) )
         raw_input("Press Enter to continue...")
         self.clear()
         Test()
