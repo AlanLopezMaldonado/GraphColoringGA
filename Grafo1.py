@@ -82,7 +82,7 @@ def ConstruirGrafo(listaNodos, ADYACENCIA):
     print "Enlaces: ", G.number_of_edges(),G.edges()
     plt.axis('off')
     plt.show() 
-    
+    return G
  
 
 """
@@ -93,8 +93,8 @@ descritas anteriormenet para crear al grafo.
 def GrafoNetworkx(NOMBREGRAFO): 
     Nodos=ObtenerVerticesGrafo(NOMBREGRAFO)
     NodosAdyacentes=ObtenerAdyacenciaGrafo(NOMBREGRAFO)
-    ConstruirGrafo(Nodos, NodosAdyacentes)
-    
+    grafo=ConstruirGrafo(Nodos, NodosAdyacentes)
+    return grafo
  
 
 #comando para probar la funcionalidad de estas funciones

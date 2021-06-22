@@ -23,6 +23,7 @@ def clear():
 
 
 def RealizarAlgoritmoGenetico(NOMBREGRAFO):
+    vent1.destroy
     Grafo1.GrafoNetworkx(NOMBREGRAFO)
     Solucion= GeneticFunctions.MainFunction(NOMBREGRAFO)
     GrafoSolucion.GrafoNetworkx(NOMBREGRAFO, Solucion)
@@ -33,9 +34,11 @@ def RealizarAlgoritmoGenetico(NOMBREGRAFO):
 # show an "Open" dialog box and return the path to the selected file   
 def seleccionararchivo():
     filename = tkFileDialog.askopenfilename(initialdir="/grafosejemplo", title="select a file",filetypes= (("text files", "*.txt"), ("All files", "*.*")) ) 
-    #fileselected =  Label(vent1, text = filename, bg="#ffffff" , font=("Arial", 14)).grid(row=4, column=1)
+    #fileselected =  Label(vent1, textvariable = filename, bg="#ffffff" , font=("Arial", 14)).grid(row=9, column=1)
     #myfile=filename
     #print(myfile)
+    #clave=  'Nombre del grafo: ' + filename
+    #listboxgrafos.insert(4, clave)
     return filename
     
 
@@ -52,7 +55,7 @@ def salir():
 
 def MostrarMenuPrincipal():
 
-    global vent1,myfile,valorop
+    global vent1,myfile,valorop,filename,listboxgrafos
     #inicializar ventana interfaz grafica
     vent1=Tk()
     vent1.title("Sistema de Coloracion de grafos")
@@ -63,33 +66,35 @@ def MostrarMenuPrincipal():
 
     #varibles y labels
     myfile = StringVar()
-    myfile = 'grafosejemplo\EjemploGrafo1.txt'
+    myfile.set("grafosejemplo\EjemploGrafo1.txt")
     #myfile = 'C:\Users\Alan\Documents\GraphColoringGA\grafosejemplo\Grafo.txt'
     #filename = myfile
     valorop=StringVar()
-    #filename=StringVar()
+    filename=StringVar()
 
     bienvenida =Label(vent1, text= 'Bienvenido al sistema de coloracion de grafos', bg=colorvent1, font=("Arial", 16)).grid(row=2, column=1)   #.place(x=50, y=20)
     bienvenidainfo1 =Label(vent1, text='Selecciona la opcion correspondiente a lo que deseas realizar: ', bg=colorvent1, font=("Arial", 16) ).grid(row=3, column=1)      #.place(x=50, y=400)
-    #fileselected =  Label(vent1, text = myfile, bg="#ffffff", font=("Arial", 16)).grid(row=4, column=1) 
+    fileselected =  Label(vent1, textvariable = myfile, bg="#ffffff", font=("Arial", 16)).grid(row=4, column=1) 
     
     #listbox de opciones 
-    listboxgrafos=Listbox(vent1, width=60)
+    listboxgrafos=Listbox(vent1, width=100)
     clave= str(0) + '.  Ejecutar grafo de ejemplo' 
     listboxgrafos.insert(0, clave )
     clave= str(1) + '.  Seleccionar un grafo (.txt)' 
     listboxgrafos.insert(1, clave)
     clave= str(2) + '.  SALIR DEL SISTEMA ' 
     listboxgrafos.insert(2, clave)
-    
+    clave=  'Nombre del grafo: ' + myfile.get()
+    listboxgrafos.insert(3, clave)
     listboxgrafos.grid(row=5, column=1)
+    
 
     #spinbox to select option
     electopcion= Spinbox(vent1, from_= 0, to= 2 ,  textvariable=valorop).grid(row=6, column=1) 
 
     #buttons
     botonacept=Button(vent1, text="Aceptar", command=vent1.destroy, font=("Arial", 16) ).grid(row=7, column=1)     #.place(x=200, y=500)
-    #buttonSelectfile = Button (vent1, text="Seleccionar archivo", command=seleccionararchivo, font=("Arial", 16) ).grid(row=6, column=1)   #.place(x=50, y=550)
+    #buttonSelectfile = Button (vent1, text="Seleccionar archivo", command=vent1.destroy, font=("Arial", 16) ).grid(row=9, column=1)   #.place(x=50, y=550)
     buttonSalir = Button (vent1, text="Salir", command=salir, font=("Arial", 16) ).grid(row=8, column=1)   #.place(x=50, y=550)
     
     
@@ -101,22 +106,24 @@ def MostrarMenuPrincipal():
 
     if( int(Opcion) == 0):
         print("Ejecutando grafo de ejemplo:")
-        RealizarAlgoritmoGenetico(myfile)
+        RealizarAlgoritmoGenetico(myfile.get())
     elif (int(Opcion) == 2):
         print("HAS SALIDO SATISFACTORIAMENTE DEL SISTEMA") #implementarlo mejor como un boton
         vent1.destroy
         exit()
     elif (int(Opcion) == 1):
         print("El nombre del grafo es: ")
+        print(filename)
+        #NOMBREGRAFO= fileselected["text"]
         NOMBREGRAFO= seleccionararchivo()
-        vent1.destroy
+        #vent1.destroy
         RealizarAlgoritmoGenetico(NOMBREGRAFO)
     else:   
         print("Ha ocurrido un error. Terminando ejecucion del sistema") #implementarlo mejor como un boton
         vent1.destroy
 
 
-
+    #mainloop()
 
     """
     #listar el nombre de los archivos (de los grafos) encontrados 
