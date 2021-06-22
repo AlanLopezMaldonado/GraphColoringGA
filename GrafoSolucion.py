@@ -98,6 +98,9 @@ def ConstruirGrafo(listaNodos, ADYACENCIA, Solucion, listacolores):
 
     print "Nodos: ", G.number_of_nodes(), G.nodes()
     print "Enlaces: ", G.number_of_edges(),G.edges()
+
+    resultado="correctamente"
+    plt.title("El grafo se ha coloreado "+ resultado)
     plt.axis('off')
     plt.show() 
     

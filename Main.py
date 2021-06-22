@@ -36,9 +36,10 @@ class Test():
                                 text="Salir",
                                 command=self.root.destroy)
         self.buttonColorear = tk.Button(self.root,
-                                text="Colorear Grafo",
+                                text="Colorear Grafo", bg="green",
                                 command=self.aceptar)
-
+        self.label = tk.Label(self.root,bg="red", font=("Arial", 10),
+                              text="Por favor cierra las ventanas para continuar la ejecucion del programa")
 
         #packing elements in root
         self.button.pack()
@@ -67,6 +68,11 @@ class Test():
         print("el grafo ejemplo es: " + filename)  
         
         #self.root.destroy
+        self.label.pack()
+        self.buttonchange["state"] = "disabled"
+        self.button["state"] = "disabled"
+        self.buttonColorear["state"] = "disabled"
+
         Grafo1.GrafoNetworkx(filename)
         Solucion= GeneticFunctions.MainFunction(filename)
         GrafoSolucion.GrafoNetworkx(filename, Solucion)
@@ -101,6 +107,12 @@ class Test():
         print(self.nombregrafo.get()) 
         filename=""+self.nombregrafo.get()
         print(filename)
+        #ajustando interfaz grafica
+        self.label.pack()    #se agrega un label que indica cerrar ventanas y se desabilitan los botones
+        self.buttonchange["state"] = "disabled"
+        self.button["state"] = "disabled"
+        self.buttonColorear["state"] = "disabled"
+
         Grafo1.GrafoNetworkx(filename)
         Solucion= GeneticFunctions.MainFunction(filename)
         GrafoSolucion.GrafoNetworkx(filename, Solucion)

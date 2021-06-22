@@ -3,7 +3,8 @@ import os, sys
 import networkx as nx
 import matplotlib.pyplot as plt
 import pylab
- 
+
+
 #FUNCION PARA LEER EL NOMBRE DE LOS VERTICES DEL GRAFO
 #Esta funcion lee un archivo de texto que contiene escrito al grafo y obtiene el nombre de los vertices
 #Esta funcion unicamente lee la primera linea del archivo de texto correspondiente al grafo(.txt)
@@ -80,9 +81,12 @@ def ConstruirGrafo(listaNodos, ADYACENCIA):
     nx.draw_networkx_edges(G, pos ,width=1.0,alpha=0.5)
     print "Nodos: ", G.number_of_nodes(), G.nodes()
     print "Enlaces: ", G.number_of_edges(),G.edges()
+    fig = plt.figure(1)
+    plt.title("Grafo sin colorear")
     plt.axis('off')
     plt.show() 
-    return G
+    #plt.close('all')
+    return fig
  
 
 """
