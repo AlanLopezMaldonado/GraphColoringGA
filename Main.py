@@ -1,3 +1,7 @@
+# -*- coding: cp1252 -*-
+#Alan Rodrigo Lopez Maldonado
+
+
 import tkinter as tk
 import Grafo1
 import GeneticFunctions
@@ -10,7 +14,7 @@ class Test():
     def __init__(self):
         #Variables definidas
         color="#4f7ab3" 
-        
+        self.numerocromatico = 4
         #cofigure tk window root
         self.root = tk.Tk()
         #self.root.geometry("200x80")
@@ -23,7 +27,7 @@ class Test():
         self.nombregrafo = tk.StringVar()
         self.nombregrafo.set("grafosejemplo\EjemploGrafo1.txt")
 
-        #labels and buttons
+        #labels and buttons and other elements
         self.labelname = tk.Label(self.root,
                               textvariable=self.nombregrafo)
         self.buttonchange = tk.Button(self.root,
@@ -40,8 +44,15 @@ class Test():
                                 command=self.aceptar)
         self.label = tk.Label(self.root,bg="red", font=("Arial", 10),
                               text="Por favor cierra las ventanas para continuar la ejecucion del programa")
+        self.labelspin = tk.Label(self.root, bg="#4f7ab3", font=("Arial", 10),
+                              text="Selecciona el numero de colores a usar: ")
 
-        #packing elements in root
+        self.electopcion= tk.Spinbox(self.root, from_= 2, to= len(self.obtenerTodosLosColores()) , state="readonly")
+
+
+        #packing elements in root window
+        self.labelspin.pack()
+        self.electopcion.pack()
         self.button.pack()
         self.buttonchange.pack()
         self.buttonColorear.pack()
@@ -73,8 +84,10 @@ class Test():
         self.button["state"] = "disabled"
         self.buttonColorear["state"] = "disabled"
 
+        self.numerocromatico = int(self.electopcion.get())
+        print("el numero cromatico es: " + str(self.numerocromatico) )
         Grafo1.GrafoNetworkx(filename)
-        Solucion,valor= GeneticFunctions.MainFunction(filename)
+        Solucion,valor= GeneticFunctions.MainFunction(filename, self.numerocromatico)
         GrafoSolucion.GrafoNetworkx(filename, Solucion,valor)
         print("ELVALOR DE LA BANDERA ES " + str(valor) )
         raw_input("Press Enter to continue...")
@@ -113,13 +126,27 @@ class Test():
         self.buttonchange["state"] = "disabled"
         self.button["state"] = "disabled"
         self.buttonColorear["state"] = "disabled"
-
+        
+        #ejecutando algoritmo
+        self.numerocromatico = int(self.electopcion.get())
+        print("el numero cromatico es: " + str(self.numerocromatico) )
         Grafo1.GrafoNetworkx(filename)
-        Solucion,valor= GeneticFunctions.MainFunction(filename)
+        Solucion,valor= GeneticFunctions.MainFunction(filename, self.numerocromatico)
         GrafoSolucion.GrafoNetworkx(filename, Solucion,valor)
         print("ELVALOR DE LA BANDERA ES " + str(valor) )
         raw_input("Press Enter to continue...")
         self.clear()
         Test()
+
+
+    def obtenerTodosLosColores(self):
+        lista=[] #lista que almacenara todos los colores disponibles
+        arch = open('Colores.txt', 'r')
+        text = file.read(arch)
+        lista= text.split(",")
+        arch.close()
+        print(lista)
+        
+        return lista
 
 app=Test()

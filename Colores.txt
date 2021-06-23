@@ -1,1 +1,1 @@
-r,b,y,#2E8B40
+r,b,y,#2E8B40,orange,purple,cyan,violet,pink,lime,gray

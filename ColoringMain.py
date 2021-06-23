@@ -8,6 +8,11 @@ import GrafoSolucion
 import os
 import tkFileDialog
 
+#NOTA:
+#ACTUALMENTE ESTA PAGINA ESTA EN DESUSO. FUE ACTUALIZADO POR EL ARCHIVO MAIN.PY
+#PARA CORRER EL PROGRAMA USAR  "MAIN.PY"
+
+
 
 def clear():
     if os.name == "posix":
@@ -25,7 +30,7 @@ def clear():
 def RealizarAlgoritmoGenetico(NOMBREGRAFO):
     vent1.destroy
     Grafo1.GrafoNetworkx(NOMBREGRAFO)
-    Solucion,valor= GeneticFunctions.MainFunction(NOMBREGRAFO)
+    Solucion,valor= GeneticFunctions.MainFunction(NOMBREGRAFO,4)
     GrafoSolucion.GrafoNetworkx(NOMBREGRAFO, Solucion,valor)
     raw_input("Press Enter to continue...")
     clear()

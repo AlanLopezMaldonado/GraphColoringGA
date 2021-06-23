@@ -182,13 +182,19 @@ def Genetic_Algorithm(generacionrecibida, numgeneraciones,M, N, NC, MAXIMO, VERT
 
 
 #-----------------------------------------------------------------------------------------------------------------
-def ObtenerListadeColores():
-    lista=[]
+def ObtenerListadeColores(num):
+    lista=[] #lista que almacenara todos los colores disponibles
+    colors=[]  #lista que almacenara solo ciertos colores de acuerdo al numero cromatico
     arch = open('Colores.txt', 'r')
     text = file.read(arch)
     lista= text.split(",")
+    print(num)
+    for i in range(0,num):
+        colors.append(lista[i]) 
+    #print("   //////  ")
+    #print(colors)
     arch.close()
-    return lista
+    return colors
 
 def ObtenerVerticesGrafo(nombre):
     lista=[]
@@ -218,7 +224,7 @@ def ObtenerAdyacenciaGrafo(nombre):  #Crea unaclista con los pares de vertices a
 
 
 
-def MainFunction(NOMBREGRAFO):
+def MainFunction(NOMBREGRAFO, NUMCROMATICO):
     
     ADYACENCIA=[]
     COLORES=[]
@@ -237,7 +243,7 @@ def MainFunction(NOMBREGRAFO):
     print ADYACENCIA
     
     #COLORES=['Azul', 'rojo', 'amarillo' ,'blanco' ]
-    COLORES=ObtenerListadeColores()
+    COLORES=ObtenerListadeColores(NUMCROMATICO)
     
     #aqui obtener la lista de colores que seran muchos... y usar el NC (numero cromatico) 
     #para determinar cuantos colores se agarraran y crear una lista con ese numero de colores
